@@ -3,6 +3,7 @@ var gulp = require('gulp'),
 	image = require('gulp-image'),
 	autoprefixer = require('gulp-autoprefixer'),
 	wiredep = require('gulp-wiredep'),
+	mainBowerFiles = require('main-bower-files'),
 	browserSync = require('browser-sync').create(),
 	sass = require('gulp-sass');
 
@@ -33,13 +34,18 @@ gulp.task('pug', function(){
 		.pipe(pug({
 			pretty: true
 		}))
-		.pipe(wiredep({
-			directory: './dist/js',
-			ignorePath: '../../dist/'
-		}))
+		// .pipe(wiredep({
+		// 	// directory: './dist/js/bower',
+		// 	ignorePath: '../../dist/'
+		// }))
 		.pipe(gulp.dest('./dist'))
 		.pipe(browserSync.reload({stream: true}));
 })
+
+gulp.task('bower', function(){
+	return gulp.src(mainBowerFiles())
+		.pipe(gulp.dest('./dist/js/bower'));
+});
 
 gulp.task('serve', function(){
 	browserSync.init({
@@ -54,4 +60,4 @@ gulp.task('serve', function(){
 	gulp.watch('./app/js/**.js', ['js']);
 })
 
-gulp.task('default', ['css', 'pug', 'image', 'js']);
+gulp.task('default', ['css', 'bower', 'pug', 'image', 'js']);

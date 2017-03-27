@@ -6,8 +6,7 @@
     "afilippo"
   ],
   "license": "ISC",
-  "homepage": "",
-  "private": true,
+  "homepage": "https://github.com/ok-technopolis/Filippov_Aleksey",
   "ignore": [
     "**/.*",
     "node_modules",
