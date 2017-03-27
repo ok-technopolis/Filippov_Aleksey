@@ -1,0 +1,20 @@
+{
+  "name": "notes",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "afilippo"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ok-technopolis/Filippov_Aleksey",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Sortable": "sortablejs#^1.5.1"
+  }
+}

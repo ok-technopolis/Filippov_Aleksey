@@ -1,0 +1,41 @@
+extends includes/layout.pug
+
+block head
+	title Todos
+
+
+mixin note(text)
+	.one-task(data-value=text)
+		.one-task__check
+		.one-task__textgroup
+			.one-task__text= text
+			input.one-task__input(type="text")
+		.one-task__remove
+
+
+block body
+	.page-container
+		.page-container__middle-block
+			.header
+				h1.header__title todos
+			#block-notes.block-notes
+				.block-notes__inner
+					.block-notes__header.block-notes-header
+						#select-all.block-notes-header__icon
+						.block-notes-header__group
+							#add-note-placeholder.block-notes-header__placeholder Whats needs to be done?
+							input#add-note-input.block-notes-header__input(type="text")
+					.block-notes__content
+						.block-notes-content
+							#tasks-container.block-notes-content__tasks
+								//-each text in ['JS', 'HTML', 'CSS', 'jQuery', 'Very Long Text, Very Long Text, Very Long Text, Very Long Text']
+									+note(text)
+							.block-notes-content__footer.block-notes-footer
+								#notes-counter.block-notes-footer__left 3 items left
+								.block-notes-footer__right Clear completed
+								ul.block-notes-footer__group.group-of-buttons
+									li.group-of-buttons__button.button_active All
+									li.group-of-buttons__button Active
+									li.group-of-buttons__button Completed
+	template#note-template
+		+note('')

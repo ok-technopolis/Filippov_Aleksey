@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/bower/Sortable.js"></script>
+    <script src="js/main.js"></script>
+    <title>Todos</title>
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="page-container__middle-block">
+        <div class="header">
+          <h1 class="header__title">todos</h1>
+        </div>
+        <div class="block-notes" id="block-notes">
+          <div class="block-notes__inner">
+            <div class="block-notes__header block-notes-header">
+              <div class="block-notes-header__icon" id="select-all"></div>
+              <div class="block-notes-header__group">
+                <div class="block-notes-header__placeholder" id="add-note-placeholder">Whats needs to be done?</div>
+                <input class="block-notes-header__input" id="add-note-input" type="text">
+              </div>
+            </div>
+            <div class="block-notes__content">
+              <div class="block-notes-content">
+                <div class="block-notes-content__tasks" id="tasks-container"></div>
+                <div class="block-notes-content__footer block-notes-footer">
+                  <div class="block-notes-footer__left" id="notes-counter">3 items left</div>
+                  <div class="block-notes-footer__right">Clear completed</div>
+                  <ul class="block-notes-footer__group group-of-buttons">
+                    <li class="group-of-buttons__button button_active">All</li>
+                    <li class="group-of-buttons__button">Active</li>
+                    <li class="group-of-buttons__button">Completed</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <template id="note-template">
+      <div class="one-task" data-value="">
+        <div class="one-task__check"></div>
+        <div class="one-task__textgroup">
+          <div class="one-task__text"></div>
+          <input class="one-task__input" type="text"/>
+        </div>
+        <div class="one-task__remove"></div>
+      </div>
+    </template>
+  </body>
+</html>
