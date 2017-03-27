@@ -1,0 +1,114 @@
+$text-dark: #000;
+
+.one-task{
+	height: 62px;
+	border-bottom: 1px solid #e6e6e6;
+	position: relative;
+	cursor: pointer;
+	transition: all 200ms ease;
+	& &__check{
+		position: absolute;
+		width: 36px;
+		height: 36px;
+		left: 12px;
+		top: 13px;
+		border-radius: 50%;
+		background-color: #fff;
+		box-sizing: border-box;
+		border: 1px solid #e6e6e6;
+		transition: all 200ms ease;
+		&::before{
+			opacity: 0;
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			// @include image-adaptive('completed', 'png');
+			background-size: 20px 20px;
+			background-repeat: no-repeat;
+			background-position: center;
+			transition: all 200ms ease;
+		}
+	}
+	& &__textgroup{
+		position: absolute;
+		left: 60px;
+		right: 48px;
+		top: 12px;
+		bottom: 12px;
+	}
+	& &__text{
+		font-size: 24px;
+		line-height: 38px;
+		font-weight: 200;
+		color: $text-dark;
+		transition: all 200ms ease;
+		width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	& &__input{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		font-size: 24px;
+		line-height: 38px;
+		font-weight: 200;
+		color: $text-dark;
+		display: none;
+		border: 1px solid #e6e6e6;
+		padding: 0;
+		box-sizing: border-box;
+		background-color: transparent;
+		&:focus{
+			outline: none;
+		}
+	}
+	& &__remove{
+		position: absolute;
+		right: 0;
+		top: 12px;
+		width: 38px;
+		height: 38px;
+		// @include image-adaptive('close', 'png');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 18px 18px;
+		opacity: 0;
+		transition: all 200ms ease;
+	}
+	&:hover{
+		background-color: #fafafa;
+		.one-task__remove{
+			opacity: 1;
+		}
+		.one-task__check{
+			border-color: #cfcfcf;
+		}
+	}
+	&.one-task_checked{
+		.one-task__check{
+			border-color: #7bcdbe;
+			&::before{
+				opacity: 1;
+			}
+		}
+		.one-task__text{
+			color: #cccccc;
+			text-decoration: line-through;
+		}
+	}
+	&.one-task_editable{
+		.one-task__text{
+			display: none;
+		}
+		.one-task__input{
+			display: block;
+		}
+	}
+}
