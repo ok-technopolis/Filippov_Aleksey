@@ -1,0 +1,133 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  background-color: #cecece; }
+.block-notes {
+  background-color: #fff;
+  position: relative; }
+  .block-notes .block-notes__header {
+    height: 62px;
+    border-bottom: 1px solid #e6e6e6; }
+  .block-notes .block-notes__content {
+    position: relative; }
+  .block-notes .block-notes__inner {
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    background-color: #fff; }
+  .block-notes::before, .block-notes::after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); }
+  .block-notes::before {
+    left: 4px;
+    right: 4px;
+    bottom: -10px; }
+  .block-notes::after {
+    left: 2px;
+    right: 2px;
+    bottom: -5px; }
+  .block-notes_empty .block-notes-footer {
+    display: none; }
+  .block-notes_empty::before, .block-notes_empty::after {
+    display: none; }
+  .block-notes_empty .block-notes-header .block-notes-header__icon {
+    opacity: 0;
+    visibility: hidden; }
+.block-notes-header {
+  position: relative; }
+  .block-notes-header .block-notes-header__icon {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    width: 38px;
+    height: 38px;
+    transition: all 300ms ease;
+    background-size: 24px 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    opacity: 1;
+    visibility: visible; }
+    @media only screen {
+      .block-notes-header .block-notes-header__icon {
+        background-image: url(app/block-notes-header/images/select-all.png); } }
+    @media only screen and (min-resolution: 2dppx) {
+      .block-notes-header .block-notes-header__icon {
+        background-image: url(app/block-notes-header/images/select-all@2x.png); } }
+  .block-notes-header .block-notes-header__group {
+    position: absolute;
+    left: 60px;
+    right: 12px;
+    top: 16px;
+    height: 30px; }
+  .block-notes-header .block-notes-header__placeholder {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 200;
+    color: #cccccc;
+    font-style: italic;
+    opacity: 1;
+    transition: all 200ms ease; }
+    .block-notes-header .block-notes-header__placeholder.placeholder_unvisible {
+      opacity: 0; }
+  .block-notes-header .block-notes-header__input {
+    position: absolute;
+    font-size: 24px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    line-height: 30px;
+    height: 100%;
+    font-weight: 200;
+    color: #666666;
+    border: none;
+    background-color: transparent;
+    box-sizing: border-box; }
+    .block-notes-header .block-notes-header__input:focus {
+      outline: none; }
+
+/*# sourceMappingURL=styles.css.map*/

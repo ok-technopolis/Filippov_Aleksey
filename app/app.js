@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Layout from "./layout";
-import NoteLine from "./note_line";
+import './style.scss';
 
+import PageContainer from "./page-container";
 
 document.addEventListener('DOMContentLoaded', function () {
 	
-	ReactDOM.render(<Layout />, document.getElementById('container'));
+	ReactDOM.render(<PageContainer />, document.getElementById('container'));
 
 });

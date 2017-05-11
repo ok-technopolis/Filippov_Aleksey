@@ -1,0 +1,19 @@
+@import "../include.scss";
+
+.group-of-buttons{
+	height: 22px;
+	& &__button{
+		float: left;
+		line-height: 20px;
+		border: 1px solid transparent;
+		border-radius: 3px;
+		transition: all 300ms ease;
+		padding: 0 9px;
+		margin: 0 4px;
+		cursor: pointer;
+		&.button_active{
+			border-color: #e6e6e6;
+			cursor: default;
+		}
+	}
+}

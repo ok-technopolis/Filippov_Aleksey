@@ -1,0 +1,8 @@
+@mixin image-adaptive($image, $extension) {
+	@media only screen {
+		background-image: url($path-images + $image + "." + $extension); 
+	}
+	@media only screen and (min-resolution: 2dppx) {
+		background-image: url($path-images + $image + "@2x." + $extension);
+	}
+}

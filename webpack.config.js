@@ -7,7 +7,7 @@ module.exports = {
 	context: __dirname,
 	entry: {
 		bundle: ['webpack-dev-server/client', './app/app.js'],
-		styles: ['webpack-dev-server/client', './app/style.scss'],
+		// styles: ['webpack-dev-server/client', './app/style.scss'],
 	},
 	output: {
 		filename: '[name].js',
@@ -41,7 +41,10 @@ module.exports = {
 			{
 				test: /\.scss$/,
 				// loader: 'css-loader!resolve-url!sass-loader?sourceMap'
-				loader: 'css-loader!sass-loader?sourceMap'
+				loader: ExtractTextPlugin.extract({
+					// fallback: 'css-loader', 
+					use: 'css-loader!sass-loader?sourceMap'
+				})
 			},
 			{
 				test: /\.css$/,
@@ -49,13 +52,14 @@ module.exports = {
 			},
 			{
 				test: /\.woff2?$|\.ttf$|\.eot$|\.svg$|\.png|\.jpe?g|\.gif$/,
-				loader: 'file-loader'
+				loader: 'file-loader?name=[path][name].[ext]'
 			}
 		]
 	},
 	plugins: [
-		// new ExtractTextPlugin('styles.css', {
-		// 	allChunks: true
-		// })
+		new ExtractTextPlugin({
+			filename: 'styles.css',
+			allChunks: true
+		})
 	]
 };

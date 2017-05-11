@@ -1,0 +1,52 @@
+@import "../include.scss";
+
+.block-notes{
+	background-color: #fff;
+	position: relative;
+	$shadow: 0 2px 4px rgba(0,0,0,0.2);
+	& &__header{
+		height: 62px;
+		border-bottom: 1px solid #e6e6e6;
+	}
+	& &__content{
+		position: relative;
+	}
+	& &__inner{
+		position: relative;
+		box-shadow: $shadow;
+		z-index: 1;
+		background-color: #fff;
+	}
+	&::before, &::after{
+		display: block;
+		content: '';
+		position: absolute;
+		top: 10px;
+		background-color: #fff;
+		box-shadow: $shadow;
+	}
+	&::before{
+		left: 4px;
+		right: 4px;
+		bottom: -10px;
+	}
+	&::after{
+		left: 2px;
+		right: 2px;
+		bottom: -5px;
+	}
+	&_empty{
+		.block-notes-footer{
+			display: none;
+		}
+		&::before, &::after{
+			display: none;
+		}
+		.block-notes-header{
+			.block-notes-header__icon{
+				opacity: 0;
+				visibility: hidden;
+			}
+		}
+	}
+}
