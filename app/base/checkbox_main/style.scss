@@ -1,0 +1,59 @@
+@import "../../sass/include.scss";
+
+.checkbox.checkbox_main{
+	display: block;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	background-color: #fff;
+	box-sizing: border-box;
+	overflow: hidden;
+	transition: all 200ms ease;
+	.checkbox__image{
+		border-radius: 50%;
+		transition: all 200ms ease;
+		&::before{
+			@include full-fill();
+			content: '';
+			display: block;
+			border: 1px solid $border-color;
+			border-radius: 50%;
+			box-sizing: border-box;
+			transition: all 200ms ease;
+		}
+		&::after{
+			content: '';
+			display: block;
+			@include full-fill();
+			background-color: transparent;
+			background-image: none;
+			background-size: 20px 20px;
+			background-repeat: no-repeat;
+			background-position: center;
+			@include image-adaptive('completed', 'png');
+			opacity: 0;
+			transition: all 200ms ease;
+		}
+	}
+	.checkbox__input{
+		opacity: 0;
+		&:checked ~ {
+			.checkbox__image{
+				&::before{
+					border-color: #7bcdbe;
+				}
+				&::after{
+					opacity: 1;
+				}
+			}
+		}
+		&:focus ~ {
+			.checkbox__image{
+				box-shadow: inset 0 0 0 2px $focus-color;
+				&::before{
+					border-color: transparent;
+				}
+			}
+		}
+	}
+}

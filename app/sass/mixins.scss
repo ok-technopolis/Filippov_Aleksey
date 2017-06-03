@@ -1,0 +1,18 @@
+@mixin image-adaptive($image, $extension) {
+	@media only screen {
+		background-image: url($path-images + $image + "." + $extension); 
+	}
+	@media only screen and (min-resolution: 2dppx) {
+		background-image: url($path-images + $image + "@2x." + $extension);
+	}
+}
+
+@mixin full-fill(){
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}

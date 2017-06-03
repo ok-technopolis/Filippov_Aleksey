@@ -1,0 +1,13 @@
+@import '../../sass/include.scss';
+
+.header{
+	position: relative;
+	&__title{
+		color: rgba(175, 47, 47, 0.15);
+		font-size: 100px;
+		font-weight: 100;
+		margin: 0;
+		line-height: 1;
+		text-align: center;
+	}
+}

@@ -1,0 +1,20 @@
+@import "../../sass/include.scss";
+
+.checkbox{
+	position: relative;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	&__input{
+		display: block;
+		@include full-fill();
+		-webkit-appearance: none;
+		margin: 0;
+		z-index: 1;
+		cursor: pointer;
+	}
+	&__image{
+		@include full-fill();
+	}
+}

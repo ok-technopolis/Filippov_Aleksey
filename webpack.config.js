@@ -1,12 +1,12 @@
-webpack = require('webpack');
-path = require('path');
+var webpack = require('webpack');
+var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 module.exports = {
 	context: __dirname,
 	entry: {
-		bundle: ['webpack-dev-server/client', './app/app.js'],
+		bundle: ['webpack-dev-server/client', './app/app.jsx'],
 		// styles: ['webpack-dev-server/client', './app/style.scss'],
 	},
 	output: {
