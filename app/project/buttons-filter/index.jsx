@@ -10,41 +10,34 @@ export default class ButtonsFilter extends React.Component{
 	constructor(props){
 		super(props);
 		
+		let initialButtonState = {};
+		props.buttons.forEach(el => {
+			initialButtonState[el.type] = el.type == props.active
+		});
 		this.state = {
-			buttons: [{
-				type: 'all',
-				text: 'All',
-				active: true,
-				label: 'Show all tasks',
-				action: this.props.filter.showAll
-			}, {
-				type: 'active',
-				text: 'Active',
-				active: false,
-				label: 'Show active tasks',
-				action: this.props.filter.showActive
-			}, {
-				type: 'completed',
-				text: 'Completed',
-				active: false,
-				label: 'Show completed tasks',
-				action: this.props.filter.showCompleted
-			}]
-		}
-		
+			buttons: initialButtonState
+		};
+				
 		this.onClick = this.onClick.bind(this);
 	}
 	
 	onClick(type){
-		for (let i = 0; i < this.state.buttons.length; i++){
-			if (this.state.buttons[i].type == type){
-				var action = this.state.buttons[i].action;
-				return (event) => {
-					this.state.buttons.forEach(el => {
-						el.active = (el.type == type);
-					});
-					action();
+		for (let i = 0; i < this.props.buttons.length; i++){
+			if (this.props.buttons[i].type != type) continue;
+			
+			let buttonAction = this.props.buttons[i].action;
+			
+			return (event) => {
+				let buttonState = {};
+				for (let typeButton in this.state.buttons){
+					buttonState[typeButton] = typeButton == type;
 				}
+				
+				this.setState({
+					buttons: buttonState
+				}, () => {
+					buttonAction();
+				});
 			}
 		}
 	}
@@ -52,10 +45,10 @@ export default class ButtonsFilter extends React.Component{
 	render(){
 		return (
 			<div className="buttons-filter">
-				{this.state.buttons.map(el => {
+				{this.props.buttons.map(el => {
 					return (
 						<Button 
-							className={'buttons-filter__button' + ((el.active) ? ' button_active' : '')}
+							className={'buttons-filter__button' + (this.state.buttons[el.type] ? ' button_active' : '')}
 							onClick={this.onClick(el.type)}
 							key={el.type}
 							label={el.label}

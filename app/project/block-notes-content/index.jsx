@@ -5,18 +5,19 @@ import React from "react";
 import './style.scss';
 
 import OneTask from '../one-task';
+import FilterAction from '../filterAction.js';
 
 export default class BlockNotesContent extends React.Component{
 	render(){
 		let tasksFiltered;
 		switch (this.props.type) {
-			case 'all':
+			case FilterAction.SHOW_ALL:
 				tasksFiltered = this.props.tasks;
 				break;
-			case 'active':
+			case FilterAction.SHOW_ACTIVE:
 				tasksFiltered = this.props.tasks.filter(item => !item.checked);
 				break;
-			case 'completed':
+			case FilterAction.SHOW_COMPLETED:
 				tasksFiltered = this.props.tasks.filter(item => item.checked);
 				break;
 		}

@@ -7,31 +7,22 @@ import './style.scss';
 import BlockNotesHeader from '../block-notes-header';
 import BlockNotesContent from '../block-notes-content';
 import BlockNotesFooter from '../block-notes-footer';
+import FilterAction from '../filterAction.js';
 
 export default class BlockNotes extends React.Component{
 	constructor(props){
 		super(props);
 	
 		this.state = {
-			show: 'all'
+			show: FilterAction.SHOW_ALL
 		}
 		
 		this.getLeft = this.getLeft.bind(this);
-		this.filter.showAll = this.filter.showAll.bind(this);
-		this.filter.showActive = this.filter.showActive.bind(this);
-		this.filter.showCompleted = this.filter.showCompleted.bind(this);
+		this.filter = this.filter.bind(this);
 	}
 	
-	filter = {
-		showAll: () => {
-			this.setState({show: 'all'});
-		},
-		showActive: () => {
-			this.setState({show: 'active'});
-		},
-		showCompleted: () => {
-			this.setState({show: 'completed'});
-		}
+	filter(type){
+		this.setState({show: type});
 	}
 	
 	getLeft(){

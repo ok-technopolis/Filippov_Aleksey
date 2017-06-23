@@ -30,17 +30,9 @@ export default class OneTask extends React.Component{
 		this.props.actions.removeTask(this.id);
 	}
 	
-	render(){
-		let store = this.props.tasks;
-		let task;
-		for (let i = 0; i < store.length; i++){
-			if (store[i].id === this.id){
-				task = store[i];
-			}
-		}
-		
+	render(){		
 		let cls = 'one-task';
-		if (task.checked){
+		if (this.props.checked){
 			cls += ' one-task_checked';
 		}
 		
@@ -49,7 +41,7 @@ export default class OneTask extends React.Component{
 				<CheckboxMain className="one-task__checkbox" label="Mark as complete" checked={this.props.checked} onChangeCheck={this.onChangeCheckHandler}/>
 				<ButtonImage className="one-task__remove" label="Remove this task" onClick={this.onRemoveClick} />
 				<div className="one-task__input-wrap">
-					<Textinput className="one-task__input" type="textarea" value={task.text} onChange={this.onChangeText}/>
+					<Textinput className="one-task__input" type="textarea" value={this.props.text} onChange={this.onChangeText}/>
 				</div>
 			</div>);
 	}
