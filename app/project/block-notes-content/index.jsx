@@ -27,9 +27,7 @@ export default class BlockNotesContent extends React.Component{
 				{tasksFiltered.map(item => 
 					<OneTask 
 						key={item.id} 
-						id={item.id} 
-						text={item.text}
-						checked={item.checked}
+						task={item}
 						actions={this.props.actions} 
 						tasks={this.props.tasks} 
 					/>

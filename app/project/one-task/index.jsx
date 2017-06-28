@@ -11,7 +11,7 @@ import Textinput from '../../base/textinput';
 export default class OneTask extends React.Component{
 	constructor(props){
 		super(props);
-		this.id = props.id;
+		this.id = props.task.id;
 		
 		this.onChangeText = this.onChangeText.bind(this);
 		this.onChangeCheckHandler = this.onChangeCheckHandler.bind(this);
@@ -32,16 +32,16 @@ export default class OneTask extends React.Component{
 	
 	render(){		
 		let cls = 'one-task';
-		if (this.props.checked){
+		if (this.props.task.checked){
 			cls += ' one-task_checked';
 		}
 		
 		return (
 			<div className={cls}>
-				<CheckboxMain className="one-task__checkbox" label="Mark as complete" checked={this.props.checked} onChangeCheck={this.onChangeCheckHandler}/>
+				<CheckboxMain className="one-task__checkbox" label="Mark as complete" checked={this.props.task.checked} onChangeCheck={this.onChangeCheckHandler}/>
 				<ButtonImage className="one-task__remove" label="Remove this task" onClick={this.onRemoveClick} />
 				<div className="one-task__input-wrap">
-					<Textinput className="one-task__input" type="textarea" value={this.props.text} onChange={this.onChangeText}/>
+					<Textinput className="one-task__input" type="textarea" value={this.props.task.text} onChange={this.onChangeText}/>
 				</div>
 			</div>);
 	}
