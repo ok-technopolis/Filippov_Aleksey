@@ -1,0 +1,19 @@
+@import "../../sass/include.scss";
+
+.button-image{
+	width: 38px;
+	height: 38px;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	cursor: pointer;
+	position: relative;
+	border: 2px solid transparent;
+	display: inline-block;
+	background-color: transparent;
+	transition: border-color 200ms ease;
+	&:focus{
+		outline: none;
+		border-color: $focus-color;
+	}
+}

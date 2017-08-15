@@ -1,3 +1,8 @@
+static/build/*
+!static/build/index.html
+
+.tmp/*
+
 # Logs
 logs
 *.log

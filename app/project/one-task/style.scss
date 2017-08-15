@@ -1,0 +1,48 @@
+@import "../../sass/include.scss";
+
+.one-task{
+	overflow: hidden;
+	border-bottom: 1px solid $border-color;
+	position: relative;
+	transition: all 200ms ease;
+	&__checkbox.checkbox_main{
+		float: left;
+		margin: 13px 7px 0 12px;
+	}
+	&__remove.button-image{
+		float: right;
+		margin: 13px 2px 0 2px;
+		@include image-adaptive('close', 'png');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 18px 18px;
+		opacity: 0;
+		transition: all 200ms ease;
+	}
+	&__input-wrap{
+		overflow: hidden;
+		padding: 15px 5px 15px 0;
+	}
+	&__input.textinput{
+		display: block;
+		width: 100%;
+	}
+	&:hover{
+		background-color: #fafafa;
+		.one-task__remove{
+			opacity: 1;
+		}
+		.one-task__checkbox{
+			border-color: #cfcfcf;
+		}
+	}
+	&__remove:focus{
+		opacity: 1;
+	}
+	&_checked{
+		.textinput.one-task__input{
+			text-decoration: line-through;
+			color: $text-light;
+		}
+	}
+}

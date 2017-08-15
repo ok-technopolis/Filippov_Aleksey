@@ -1,0 +1,21 @@
+@import "../../sass/include.scss";
+
+.button{
+	display: inline-block;
+	font-size: 14px;
+	line-height: 20px;
+	font-family: $base-font;
+	border: 1px solid transparent;
+	background: transparent;
+	border-radius: 3px;
+	transition: all 200ms ease;
+	padding: 0 9px;
+	margin: 0 4px;
+	color: $text-dark;
+	font-weight: 200;
+	cursor: pointer;
+	&:focus{
+		outline: none;
+		box-shadow: 0 0 0 2px $focus-color;
+	}
+}

@@ -1,0 +1,10 @@
+@import "../../sass/include.scss";
+
+.buttons-filter{
+	&__button{
+		&.button_active{
+			border-color: $border-color;
+			cursor: default;
+		}
+	}
+}
