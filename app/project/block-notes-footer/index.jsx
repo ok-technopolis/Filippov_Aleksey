@@ -9,41 +9,34 @@ import Button from '../../base/button';
 import FilterAction from '../filterAction.js';
 
 export default class BlockNotesFooter extends React.Component{
-	render(){
-		let textCount = this.props.count + ((this.props.count > 1) ? ' items' : ' item') + ' left';
+	constructor(props){
+		super(props);
 		
-		let filter = this.props.filter;
-		
-		let filterButtons = [
+		this._filter = [
 			{
-				type: 'all',
+				type: FilterAction.SHOW_ALL,
 				text: 'All',
-				label: 'Show all tasks',
-				action(){
-					filter(FilterAction.SHOW_ALL);
-				}
+				label: 'Show all tasks'
 			}, {
-				type: 'active',
+				type: FilterAction.SHOW_ACTIVE,
 				text: 'Active',
-				label: 'Show active tasks',
-				action(){
-					filter(FilterAction.SHOW_ACTIVE);
-				}
+				label: 'Show active tasks'
 			}, {
-				type: 'completed',
+				type: FilterAction.SHOW_COMPLETED,
 				text: 'Completed',
-				label: 'Show completed tasks',
-				action(){
-					filter(FilterAction.SHOW_COMPLETED);
-				}
+				label: 'Show completed tasks'
 			}
 		];
+	}
+	
+	render(){
+		let textCount = this.props.count + ((this.props.count > 1) ? ' items' : ' item') + ' left';
 		
 		return (
 			<div className="block-notes-footer">
 				<div className="block-notes-footer__left">{textCount}</div>
 				<div className="block-notes-footer__group">
-					<ButtonsFilter active="all" buttons={filterButtons}/>
+					<ButtonsFilter initialActive={FilterAction.SHOW_ALL} buttons={this._filter} onFilterChange={this.props.filter}/>
 				</div>
 				<Button className="block-notes-footer__clear" label="Clear completed" text="Clear completed" onClick={this.props.actions.clearCompleted}/>
 			</div>
